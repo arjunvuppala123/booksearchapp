@@ -1,7 +1,12 @@
-import { useRef,useEffect,useState } from 'react';
+import { useRef,useEffect,useState} from 'react';
+import { useLocation } from 'react-router-dom'
 
 function UpdateBooks(){
     const [book,setBook] = useState([]);
+    
+    const location = useLocation();
+    var path = location.pathname;
+    const bookId = path.split('/')[2];
 
     const BookName = useRef();
     const BookAuthor = useRef();
@@ -9,7 +14,7 @@ function UpdateBooks(){
     const bookDescription = useRef();
 
     useEffect(() => {
-        fetch("http://localhost:8081/books", {
+        fetch("http://localhost:8081/books/"+bookId, {
             method: 'get',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
