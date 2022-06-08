@@ -36,8 +36,8 @@ public class BookController {
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT,value="/books/{id}")
-	public void updateBook(@RequestBody Book book,@PathVariable long id) {
-		service.updateBook(book, id);
+	public Book updateBook(@RequestBody Book book,@PathVariable long id) {
+		return service.updateBook(book, id);
 	}
 	@RequestMapping(method=RequestMethod.DELETE, value= "/books/{id}")
 	public void deleteBook(@PathVariable long id) {

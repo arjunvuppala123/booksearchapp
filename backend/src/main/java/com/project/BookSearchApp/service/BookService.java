@@ -33,7 +33,8 @@ public class BookService {
 		repo.deleteById(id);
 	}
 	
-	public void updateBook(Book book,long id) {
+	public Book updateBook(Book book,long id) {
 		repo.save(book);
+		return book;
 	}
 }
